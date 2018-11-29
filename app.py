@@ -38,7 +38,7 @@ def handle_message(event):
 
 def Reply(text):
 	if text　== "sb":
-		return "sssd"
+		return 'sssd'
     
 import os
 if __name__ == "__main__":
