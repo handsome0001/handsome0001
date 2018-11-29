@@ -37,7 +37,7 @@ def handle_message(event):
     line_bot_api.reply_message(event.reply_token, message)
 
 def Reply(text):
-    if text　== "sb":
+    if text == "sb":
         return 'sds'
 
 
