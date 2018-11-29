@@ -38,7 +38,7 @@ def handle_message(event):
 
 def Reply(text):
     if text == "sb":
-        return 'sds'
+        return '你才是'
 
 
 import os
