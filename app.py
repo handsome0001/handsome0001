@@ -29,6 +29,7 @@ def callback():
     except InvalidSignatureError:
         abort(400)
     return 'OK'
+
 def KeyWord(text):
     KeyWordDict = {"你好":"你也好啊",
                    "你是誰":"我是大帥哥",
@@ -48,28 +49,28 @@ def Reply(event):
 
 def  button(event):
     message = TemplateSendMessage(
-    alt_text='我是文字喔',
-    template=ButtonsTemplate(
-        thumbnail_image_url='00圖.jpg',
-        title='海綿寶寶',
-        text='誰是智障',
-        actions=[
-            PostbackTemplateAction(
-                label='皮老闆',
-                text='答得有點錯吧',
-                data=''
-            ),
-            MessageTemplateAction(
-                label='派星星',
-                text='答得有點對吧'
-            ),
-            URITemplateAction(
-                label='海腦殘',
-                uri='https://zh.wikipedia.org/wiki/%E8%84%91%E6%AE%8B'
-            )
-        ]
+        alt_text='我是文字喔',
+        template=ButtonsTemplate(
+            thumbnail_image_url='00圖.jpg',
+            title='海綿寶寶',
+            text='誰是智障',
+            actions=[
+                PostbackTemplateAction(
+                    label='皮老闆',
+                    text='答得有點錯吧',
+                    data=''
+                ),
+                MessageTemplateAction(
+                    label='派星星',
+                    text='答得有點對吧'
+                ),
+                URITemplateAction(
+                    label='海腦殘',
+                    uri='https://zh.wikipedia.org/wiki/%E8%84%91%E6%AE%8B'
+                )
+            ]
+        )
     )
-)
 line_bot_api.reply_message(event.reply_token, message)
 
 # 處理訊息
