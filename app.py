@@ -52,21 +52,21 @@ def Button(event):
         alt_text='Buttons template',
         template=ButtonsTemplate(
             thumbnail_image_url='https://github.com/handsome0001/handsome0001/blob/master/00%E5%9C%96.jpg?raw=true',
-            title='Menu',
-            text='Please select',
+            title='海綿寶寶',
+            text='誰是智障',
             actions=[
                 PostbackTemplateAction(
-                    label='postback',
-                    text='postback text',
+                    label='皮神闆',
+                    text='答案有點對喔',
                     data='action=buy&itemid=1'
                 ),
                 MessageTemplateAction(
-                    label='message',
-                    text='message text'
+                    label='派星星',
+                    text='答案有點錯喔'
                 ),
                 URITemplateAction(
-                    label='uri',
-                    uri='http://example.com/'
+                    label='海綿腦殘',
+                    uri='https://zh.wikipedia.org/wiki/%E8%84%91%E6%AE%8B'
                 )
             ]
         )
