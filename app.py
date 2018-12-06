@@ -39,17 +39,45 @@ def KeyWord(text):
     return[False]
 
 def Reply(event):
+
     Ktemp = KeyWord(event.message.text)
     if Ktemp[0]:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text = Ktemp[1]))
     else:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text = event.message.text))
 
+def  button():
+    message = TemplateSendMessage(
+    alt_text='我是文字喔',
+    template=ButtonsTemplate(
+        thumbnail_image_url='00圖.jpg',
+        title='海綿寶寶',
+        text='誰是智障',
+        actions=[
+            PostbackTemplateAction(
+                label='皮老闆',
+                text='答得有點錯吧'#,
+                #data=''
+            ),
+            MessageTemplateAction(
+                label='派星星',
+                text='答得有點對吧'
+            ),
+            URITemplateAction(
+                label='海腦殘',
+                uri='https://zh.wikipedia.org/wiki/%E8%84%91%E6%AE%8B'
+            )
+        ]
+    )
+)
+line_bot_api.reply_message(event.reply_token, message)
+
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     try:
-        Reply(event)
+        button()
+        #Reply(event)
     except Exception as e:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text = str(e)))
 import os
