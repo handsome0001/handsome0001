@@ -56,8 +56,8 @@ def  button(event):
         actions=[
             PostbackTemplateAction(
                 label='皮老闆',
-                text='答得有點錯吧'#,
-                #data=''
+                text='答得有點錯吧',
+                data=''
             ),
             MessageTemplateAction(
                 label='派星星',
