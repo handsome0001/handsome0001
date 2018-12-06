@@ -47,26 +47,26 @@ def Reply(event):
     else:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text = event.message.text))
 
-def button(event):
+def Button(event):
     message = TemplateSendMessage(
-        alt_text='我是文字喔',
+        alt_text='Buttons template',
         template=ButtonsTemplate(
-            thumbnail_image_url='00圖.jpg',
-            title='海綿寶寶',
-            text='誰是智障',
+            thumbnail_image_url='https://example.com/image.jpg',
+            title='Menu',
+            text='Please select',
             actions=[
                 PostbackTemplateAction(
-                    label='皮老闆',
-                    text='答得有點錯吧',
-                    data=''
+                    label='postback',
+                    text='postback text',
+                    data='action=buy&itemid=1'
                 ),
                 MessageTemplateAction(
-                    label='派星星',
-                    text='答得有點對吧'
+                    label='message',
+                    text='message text'
                 ),
                 URITemplateAction(
-                    label='海腦殘',
-                    uri='https://zh.wikipedia.org/wiki/%%E8%%84%%91%%E6%%AE%%8B'
+                    label='uri',
+                    uri='http://example.com/'
                 )
             ]
         )
