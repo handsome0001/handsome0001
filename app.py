@@ -47,7 +47,7 @@ def Reply(event):
     else:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text = event.message.text))
 
-def  button(event):
+def button(event):
     message = TemplateSendMessage(
         alt_text='我是文字喔',
         template=ButtonsTemplate(
@@ -66,12 +66,12 @@ def  button(event):
                 ),
                 URITemplateAction(
                     label='海腦殘',
-                    uri='https://zh.wikipedia.org/wiki/%E8%84%91%E6%AE%8B'
+                    uri='https://zh.wikipedia.org/wiki/%%E8%%84%%91%%E6%%AE%%8B'
                 )
             ]
         )
     )
-line_bot_api.reply_message(event.reply_token, message)
+    line_bot_api.reply_message(event.reply_token, message)
 
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
