@@ -57,7 +57,7 @@ def Button(event):
             actions=[
                 PostbackTemplateAction(
                     label='皮神闆',
-                    data='答案有點不對'
+                    data='答案有點不對,'
                 ),
                 MessageTemplateAction(
                     label='派星星',
@@ -80,7 +80,6 @@ def handle_message(event):
         #Reply(event)
     except Exception as e:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text = str(e)))
-import os
 
 @handler.add(PostbackEvent)
 def handle_postback(event):
@@ -88,6 +87,7 @@ def handle_postback(event):
     if command[0] == '答案有點不對':
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text = "趕快去看海綿寶寶阿!!!"))
 
+import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
