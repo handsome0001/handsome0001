@@ -63,7 +63,6 @@ def Button(event):
             actions=[
                 PostbackTemplateAction(
                     label='皮神闆',
-                    text='答案有點對喔',
                     data='答案也點不對'
                 ),
                 MessageTemplateAction(
