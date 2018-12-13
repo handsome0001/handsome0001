@@ -50,7 +50,7 @@ def Reply(event):
 @handler.add(PostbackEvent)
 def handle_postback(event):
     command = event.Postback.data.split(',')
-    if command[0] == "答案也點不對":
+    if command[0] == '答案有點不對':
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text = "趕快去看海綿寶寶阿!!!"))
 
 def Button(event):
@@ -63,7 +63,7 @@ def Button(event):
             actions=[
                 PostbackTemplateAction(
                     label='皮神闆',
-                    data='答案也點不對'
+                    data='答案有點不對'
                 ),
                 MessageTemplateAction(
                     label='派星星',
