@@ -47,6 +47,12 @@ def Reply(event):
     else:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text = event.message.text))
 
+@handler.add(PostbackEvent)
+def handle_postback(event):
+    command = event.Postback.data.split(',')
+    if command[0] == "答案也點不對";
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text = "趕快去看海綿寶寶阿!!!"))
+
 def Button(event):
     message = TemplateSendMessage(
         alt_text='Buttons template',
@@ -58,7 +64,7 @@ def Button(event):
                 PostbackTemplateAction(
                     label='皮神闆',
                     text='答案有點對喔',
-                    data='action=buy&itemid=1'
+                    data='答案也點不對'
                 ),
                 MessageTemplateAction(
                     label='派星星',
