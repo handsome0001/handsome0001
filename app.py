@@ -47,12 +47,6 @@ def Reply(event):
     else:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text = event.message.text))
 
-@handler.add(PostbackEvent)
-def handle_postback(event):
-    command = event.Postback.data.split(',')
-    if command[0] == '答案有點不對':
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text = "趕快去看海綿寶寶阿!!!"))
-
 def Button(event):
     message = TemplateSendMessage(
         alt_text='Buttons template',
@@ -87,6 +81,12 @@ def handle_message(event):
     except Exception as e:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text = str(e)))
 import os
+
+@handler.add(PostbackEvent)
+def handle_postback(event):
+    command = event.Postback.data.split(',')
+    if command[0] == '答案有點不對':
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text = "趕快去看海綿寶寶阿!!!"))
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
