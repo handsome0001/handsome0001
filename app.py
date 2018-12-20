@@ -116,8 +116,8 @@ def handle_sticker_message(event):
     line_bot_api.reply_message(
         event.reply_token,
         StickerSendMessage(
-            package_id='1',
-            sticker_id='410')
+            package_id='11538',
+            sticker_id='51626510')
     )
 
 import os
