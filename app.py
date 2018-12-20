@@ -107,7 +107,7 @@ def handle_sticker_message(event):
         StickerSendMessage(
             package_id=event.message.package_id,
             sticker_id=event.message.sticker_id)
-    )
+)
 
 import os
 if __name__ == "__main__":
