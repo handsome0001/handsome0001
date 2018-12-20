@@ -100,6 +100,15 @@ def handle_postback(event):
             TextSendMessage(text="還沒就趕快練習去~~~"))
         line_bot_api.push_message(event.source.user_id, TextSendMessage(text="0.0"))
 
+@handler.add(MessageEvent, message=StickerMessage)
+def handle_sticker_message(event):
+    line_bot_api.reply_message(
+        event.reply_token,
+        StickerSendMessage(
+            package_id=event.message.package_id,
+            sticker_id=event.message.sticker_id)
+    )
+
 import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
